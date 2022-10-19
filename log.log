@@ -1,0 +1,34 @@
+set autocommit=1
+SELECT current_user()
+SET CHARACTER SET utf8
+SET NAMES utf8
+SET SQL_SAFE_UPDATES=1
+SELECT CONNECTION_ID()
+show character set where charset = 'utf8mb4'
+SET NAMES 'utf8mb4'
+SHOW SESSION STATUS LIKE 'Ssl_cipher'
+set autocommit=1
+SELECT * FROM steam.tm_info
+LIMIT 0, 2000
+
+set autocommit=1
+SELECT current_user()
+SET CHARACTER SET utf8
+SET NAMES utf8
+SHOW SESSION VARIABLES LIKE 'sql_mode'
+SELECT CONNECTION_ID()
+show character set where charset = 'utf8mb4'
+SET NAMES 'utf8mb4'
+SHOW SESSION STATUS LIKE 'Ssl_cipher'
+set autocommit=1
+SELECT st.* FROM performance_schema.events_statements_current st JOIN performance_schema.threads thr ON thr.thread_id = st.thread_id WHERE thr.processlist_id = 90
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 12
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 12
+SHOW INDEX FROM `steam`.`tm_info`
+SELECT * FROM steam.tm_info where sell_week > 30
+LIMIT 0, 2000
+
+SELECT st.* FROM performance_schema.events_statements_current st JOIN performance_schema.threads thr ON thr.thread_id = st.thread_id WHERE thr.processlist_id = 90
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 15
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 15
+SHOW INDEX FROM `steam`.`tm_info`
