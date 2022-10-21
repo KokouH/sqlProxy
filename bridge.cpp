@@ -41,6 +41,7 @@ void tcp_proxy::bridge::handle_downstream_read(const boost::system::error_code& 
 			}
 			file_ << std::endl;
 		}
+		file_.flush();
 		// file_ << downstream_data_ << std::endl;
 		async_write(upstream_socket_,
 			boost::asio::buffer(downstream_data_, bytes_transferred),
