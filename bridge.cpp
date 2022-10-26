@@ -35,13 +35,10 @@ void tcp_proxy::bridge::handle_downstream_read(const boost::system::error_code& 
 	{
 		if (downstream_data_[4] == 3 || downstream_data_[4] == 22)
 		{	
-			for (size_t i = 7; i < bytes_transferred; i++)
-			{
-				file_ << (char)downstream_data_[i];
-			}
-			file_ << std::endl;
+			// std::cout << std::string((char *)(&downstream_data_[7])) << std::endl;
+			file_ << std::string((char *)(&downstream_data_[7])) << std::endl;
+			file_.flush();
 		}
-		file_.flush();
 		// file_ << downstream_data_ << std::endl;
 		async_write(upstream_socket_,
 			boost::asio::buffer(downstream_data_, bytes_transferred),
